@@ -18,7 +18,9 @@
     "test": "grunt test"
   },
   "jest": {
-    "testPathDirs": ["app/client/js"],
+    "testPathDirs": [
+      "app/client/js"
+    ],
     "scriptPreprocessor": "jest-preprocessor.js"
   },
   "dependencies": {
@@ -26,6 +28,7 @@
     "deck-of-cards": "^0.1.5",
     "dot": "^1.0.3",
     "express": "^4.13.3",
+    "lodash": "^3.10.1",
     "mcfly": "0.0.10",
     "react": "^0.14.3",
     "react-dom": "^0.14.3"
