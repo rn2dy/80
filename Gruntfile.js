@@ -1,11 +1,11 @@
 module.exports = function(grunt) {
   var pkgs = [
+    'jsxhint',
     'react',
     'jest',
     'browserify',
     'express-server',
     'contrib-watch',
-    'contrib-jshint',
     'contrib-sass',
     'contrib-uglify']
 
@@ -25,10 +25,15 @@ module.exports = function(grunt) {
 
     // jshint
     jshint: {
-      files: [
-        'app/client/js/**/*.js',
-        'app/server/**/*.js'
-      ]
+      options: {
+        ignores: ['app/client/js/bundle.js']
+      },
+      main: {
+        src: [
+          'app/client/js/**/*.{js,jsx}',
+          'app/server/**/*.js'
+        ]
+      }
     },
 
     // sass
@@ -66,7 +71,7 @@ module.exports = function(grunt) {
             debug: true
           }
         },
-        src: 'app/client/js/app.js',
+        src: 'app/client/js/app.react.js',
         dest: 'app/client/js/bundle.js'
       }
     },
@@ -85,8 +90,10 @@ module.exports = function(grunt) {
         }
       },
       client: {
-        files: ['app/client/js/**/*.jsx'],
-        tasks: ['browserify', 'jshint']
+        files: [
+          'app/client/js/components/**/*.{js,jsx}'
+        ],
+        tasks: ['jshint', 'browserify']
       },
       html: {
         files: ['app/views/**/*.html']
@@ -96,7 +103,9 @@ module.exports = function(grunt) {
         tasks: ['sass']
       },
       test: {
-        files: ['app/client/js/__tests__/**/*-test.js'],
+        files: [
+          'app/client/js/components/**/*.{js,jsx}',
+          'app/client/js/__tests__/**/*-test.js'],
         tasks: ['jest'],
         options: {
           livereload: false,
@@ -124,5 +133,5 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('test', ['jest']);
-  grunt.registerTask('dev', ['sass', 'browserify', 'express:dev', 'watch']);
+  grunt.registerTask('dev', ['jshint', 'sass', 'browserify', 'express:dev', 'watch']);
 };

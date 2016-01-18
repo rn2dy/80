@@ -21,21 +21,30 @@
     "testPathDirs": [
       "app/client/js"
     ],
-    "scriptPreprocessor": "jest-preprocessor.js"
+    "scriptPreprocessor": "jest-preprocessor.js",
+    "unmockedModulePathPatterns": [
+      "node_modules/mcfly"
+    ]
   },
   "dependencies": {
+    "classnames": "^2.2.3",
     "consolidate": "^0.13.1",
     "deck-of-cards": "^0.1.5",
     "dot": "^1.0.3",
+    "es6-promise": "^3.0.2",
     "express": "^4.13.3",
+    "isomorphic-fetch": "^2.2.0",
     "lodash": "^3.10.1",
     "mcfly": "0.0.10",
     "react": "^0.14.3",
-    "react-dom": "^0.14.3"
+    "react-dom": "^0.14.3",
+    "whatwg-fetch": "^0.10.1"
   },
   "devDependencies": {
+    "babel-preset-es2015": "^6.3.13",
     "envify": "^3.4.0",
     "grunt": "^0.4.5",
+    "grunt-babel": "^6.0.0",
     "grunt-browserify": "^4.0.1",
     "grunt-contrib-jshint": "^0.11.3",
     "grunt-contrib-nodeunit": "~0.4.1",
@@ -44,8 +53,10 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-express-server": "^0.5.1",
     "grunt-jest": "^0.2.0",
+    "grunt-jsxhint": "^0.6.0",
     "grunt-react": "^0.12.3",
     "jest-cli": "^0.7.1",
+    "nock": "^5.2.1",
     "react-addons-test-utils": "^0.14.3",
     "react-tools": "^0.13.3",
     "reactify": "^1.1.1"

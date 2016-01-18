@@ -1,9 +1,13 @@
 var React = require('react');
+var Chat = require('./chat/Chat.react');
 
 var Game = React.createClass({
   render: function() {
     return (
-      <h1>Hello Gamer</h1>
+      <div>
+        <h1>80 Points</h1>
+        <Chat />
+      </div>
     );
   }
 });
