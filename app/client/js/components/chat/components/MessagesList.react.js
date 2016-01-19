@@ -5,6 +5,14 @@ var ChatStore = require('../store/ChatStore');
 
 var currentUser = Login.currentUser;
 
+function getFriendInfo(id) {
+  return ChatStore.getFriendInfo(id);
+}
+
+function scrollToBottom(elem) {
+  elem.scrollTop = elem.scrollHeight;
+}
+
 var MessagesList = React.createClass({
   mixins: [ChatStore.mixin],
 
@@ -13,22 +21,31 @@ var MessagesList = React.createClass({
   },
 
   storeDidChange: function() {
-    this.setState(getMessages());
+    this.setState({ messages: ChatStore.getMessages() });
+  },
+
+  componentDidMount: function() {
+    scrollToBottom(this.refs.messageList);
+  },
+
+  componentDidUpdate: function() {
+    scrollToBottom(this.refs.messageList);
   },
 
   render: function() {
     var messages = _.map(this.state.messages, function(msg, index) {
-      if(currentUser.id == msg.from.id) {
+      var user = getFriendInfo(msg.from);
+      if(currentUser.id == msg.from) {
         return (
           <div key={index} className="message-item right">
             <span className="message-body">{msg.message}</span>
-            <span className="nickname">{msg.from.nickname}</span>
+            <span className="nickname">{currentUser.nickname}</span>
           </div>
         );
       } else {
         return (
           <div key={index} className="message-item">
-            <span className="nickname">{msg.from.nickname}</span>
+            <span className="nickname">{user.nickname}</span>
             <span className="message-body">{msg.message}</span>
           </div>
         );
@@ -36,7 +53,7 @@ var MessagesList = React.createClass({
     });
 
     return (
-      <div className="message-list">{messages}</div>
+      <div className="message-list" ref="messageList">{messages}</div>
     );
   }
 });

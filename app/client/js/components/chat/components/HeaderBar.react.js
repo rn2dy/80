@@ -1,17 +1,14 @@
 var _ = require('lodash');
 var React = require('react');
+var ChatStore = require('../store/ChatStore');
 
 var classNames = require('classnames');
 
 var HeaderBar = React.createClass({
   getInitialState: function() {
     return {
-      chatter: { id: 2, nickName: 'Solo', active: true },
-      friends: [
-        { id: 2, nickName: 'Solo', active: true },
-        { id: 3, nickName: 'SkyWalker', active: true },
-        { id: 4, nickName: 'Darth Vader', active: false }
-      ],
+      chatter: ChatStore.getChatter(),
+      friends: ChatStore.getFriendsList(),
       showFriends: false
     };
   },
@@ -30,7 +27,7 @@ var HeaderBar = React.createClass({
       return (
         <div key={friend.id} className="friend-item">
           <span className={statusClassNames}></span>
-          <span className="name">{friend.nickName}</span>
+          <span className="name">{friend.nickname}</span>
         </div>
       );
     });
@@ -50,7 +47,7 @@ var HeaderBar = React.createClass({
       <div className="header-bar">
         <div className="chatter">
           <span className={statusClassNames}></span>
-          <span className="name">{this.state.chatter.nickName}</span>
+          <span className="name">{this.state.chatter.nickname}</span>
         </div>
         <div className="friend-list dropdown">
           <div className="dropdown-header" onClick={this.toggleFriends}>

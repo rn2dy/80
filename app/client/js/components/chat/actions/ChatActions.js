@@ -1,11 +1,11 @@
 var mcFly = require('../flux/mcfly');
 
 var ChatActions = mcFly.createActions({
-  sendMessage: function(fromUserID, toUserID, message) {
+  sendMessage: function(from, to, message) {
     return {
       actionType: 'SEND_MESSAGE',
-      fromUserID: fromUserID,
-      toUserID: toUserID,
+      from: from,
+      to: to,
       message: message
     };
   }

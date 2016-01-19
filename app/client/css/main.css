@@ -30,6 +30,25 @@ body {
   display: block;
 }
 
+.chat-container.minify .chatbox, .chat-container.minify .fa-minus {
+  display: none;
+}
+.chat-container.minify .fa-weixin {
+  display: inline-block;
+}
+.chat-container .fa-minus, .chat-container .fa-weixin {
+  position: absolute;
+  right: 18px;
+  bottom: 358px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.chat-container .fa-weixin {
+  bottom: 20px;
+  font-size: 22px;
+  display: none;
+}
+
 .chatbox {
   position: absolute;
   width: 270px;
@@ -37,10 +56,11 @@ body {
   right: 1em;
   bottom: 1em;
   background: #fff;
-  border: 1px solid #444;
+  border: 2px solid #444;
   font-size: 12px;
 }
 .chatbox .header-bar {
+  background: rgba(0, 0, 0, 0.09);
   height: 8%;
   width: 100%;
   border-bottom: 1px solid #444;
@@ -48,7 +68,7 @@ body {
 .chatbox .header-bar .chatter, .chatbox .header-bar .friend-list {
   display: inline-block;
   height: 100%;
-  line-height: 24px;
+  line-height: 26px;
   margin: auto 2px;
 }
 .chatbox .header-bar .chatter .status, .chatbox .header-bar .friend-list .status {
@@ -114,13 +134,13 @@ body {
   font-size: 13px;
   border-radius: 4px;
   padding: 4px 8px;
-  background: rgba(0, 150, 0, 0.23);
+  background: rgba(0, 150, 0, 0.35);
 }
 .message-list .message-item.right {
   text-align: right;
 }
 .message-list .message-item.right .message-body {
-  background: rgba(0, 120, 250, 0.23);
+  background: rgba(0, 120, 250, 0.35);
 }
 
 /*# sourceMappingURL=main.css.map */

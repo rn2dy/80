@@ -34,6 +34,31 @@ body {
   }
 }
 
+.chat-container {
+  &.minify {
+    .chatbox, .fa-minus {
+      display: none;
+    }
+    .fa-weixin {
+      display: inline-block;
+    }
+  }
+
+  .fa-minus, .fa-weixin {
+    position: absolute;
+    right: 18px;
+    bottom: 358px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .fa-weixin {
+    bottom: 20px;
+    font-size: 22px;
+    display: none;
+  }
+}
+
 .chatbox {
   position: absolute;
   width: 270px;
@@ -41,10 +66,11 @@ body {
   right: 1em;
   bottom: 1em;
   background: #fff;
-  border: 1px solid #444;
+  border: 2px solid #444;
   font-size: 12px;
 
   .header-bar {
+    background: rgba(0, 0, 0, 0.09);
     height: 8%;
     width: 100%;
     border-bottom: 1px solid #444;
@@ -52,7 +78,7 @@ body {
     .chatter, .friend-list {
       display: inline-block;
       height: 100%;
-      line-height: 24px;
+      line-height: 26px;
       margin: auto 2px;
 
       .status {
@@ -125,13 +151,13 @@ body {
       font-size: 13px;
       border-radius: 4px;
       padding: 4px 8px;
-      background: rgba(0, 150, 0, 0.23);
+      background: rgba(0, 150, 0, 0.35);
     }
 
     &.right {
       text-align: right;
       .message-body {
-        background: rgba(0, 120, 250, 0.23);
+        background: rgba(0, 120, 250, 0.35);
       }
     }
   }
