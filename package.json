@@ -29,7 +29,7 @@
   "dependencies": {
     "classnames": "^2.2.3",
     "consolidate": "^0.13.1",
-    "deck-of-cards": "^0.1.5",
+    "deck-of-cards": "^0.1.6",
     "dot": "^1.0.3",
     "es6-promise": "^3.0.2",
     "express": "^4.13.3",

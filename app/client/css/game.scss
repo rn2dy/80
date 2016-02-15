@@ -1,0 +1,41 @@
+.dispatcher {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  -moz-transform: translate3d(-50%, -50%, 0);
+  -o-transform: translate3d(-50%, -50%, 0);
+  -ms-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.game-table {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  .stage {
+    position: absolute;
+  }
+
+  .center {
+    top: 50%;
+    left: 50%;
+  }
+  .north {
+    top: 4rem;
+    left: 50%;
+  }
+  .south {
+    bottom: 4rem;
+    left: 50%;
+  }
+  .east {
+    right: 4rem;
+    top: 50%;
+  }
+  .west {
+    left: 4rem;
+    top: 50%;
+  }
+}

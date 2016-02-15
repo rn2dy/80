@@ -91,7 +91,9 @@ module.exports = function(grunt) {
       },
       client: {
         files: [
-          'app/client/js/components/**/*.{js,jsx}'
+          'node_modules/deck-of-cards/dist/deck.js',
+          'app/client/js/components/**/*.{js,jsx}',
+          'app/client/js/game/**/*.js'
         ],
         tasks: ['jshint', 'browserify']
       },
